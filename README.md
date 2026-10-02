@@ -301,3 +301,9 @@ customer-shopping-analysis/
 │
 ├── .gitignore
 └── README.md
+
+## 🔗 Power BI Dashboard
+
+The interactive dashboard was created using Microsoft Power BI / Fabric.
+
+[View Power BI Dashboard](https://app.fabric.microsoft.com/links/mRZI-Z3xkO?ctid=95cbc29c-510d-46c6-946c-fc1e53f86955&pbi_source=linkShare)
