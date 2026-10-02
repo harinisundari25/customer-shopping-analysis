@@ -1,14 +1,18 @@
-# Customer Shopping Behavior Analysis
+# 🛍️ Customer Shopping Behavior Analysis
 
-An end-to-end data analytics project analyzing customer shopping behavior using **Python, PostgreSQL, SQL, and Microsoft Power BI**.
+An end-to-end data analytics project analyzing customer shopping behavior using **Python, PostgreSQL, SQL, and Microsoft Power BI/Fabric**.
+
+The project covers the complete data analytics workflow:
+
+**Data Cleaning → Exploratory Data Analysis → SQL Analysis → Power BI Dashboard → Business Insights**
+
+---
 
 ## 📌 Project Overview
 
-This project analyzes customer shopping data to understand purchasing patterns, customer segments, product performance, payment preferences, subscription behavior, discount usage, shipping methods, and customer ratings.
+This project analyzes customer shopping data to understand purchasing patterns, customer segments, product performance, payment preferences, subscription behavior, discount usage, shipping methods, purchase frequency, and customer ratings.
 
-The project follows a complete data analytics workflow:
-
-**Data Cleaning → Exploratory Data Analysis → SQL Analysis → Power BI Dashboard → Business Insights**
+The project demonstrates how raw customer transaction data can be transformed into meaningful business insights using Python, SQL, PostgreSQL, and Power BI/Fabric.
 
 ---
 
@@ -21,6 +25,7 @@ The project follows a complete data analytics workflow:
 - Compare payment and shipping methods
 - Study purchase frequency and customer loyalty
 - Analyze customer review ratings
+- Analyze seasonal purchasing patterns
 - Build an interactive business dashboard
 - Generate meaningful business insights from customer data
 
@@ -72,23 +77,50 @@ Data cleaning and feature engineering were performed using **Python and Pandas**
 
 The main steps included:
 
+- Checking dataset shape and structure
+- Checking data types
 - Handling missing review ratings using category-level median values
 - Standardizing column names
 - Renaming columns for easier analysis
 - Removing the redundant `promo_code_used` column
+- Checking for duplicate records
 - Creating customer age groups
 - Converting purchase frequency into approximate days
-- Checking for duplicate records
 - Validating missing values
 - Exporting the final cleaned dataset
 
 The final dataset contains **3,900 rows and 19 columns with no missing values**.
 
+### Feature Engineering
+
+#### Age Groups
+
+Customers were grouped into:
+
+- Young Adult
+- Adult
+- Middle-aged
+- Senior
+
+#### Purchase Frequency in Days
+
+Purchase frequency was converted into approximate days:
+
+| Frequency | Approx. Days |
+|---|---:|
+| Weekly | 7 |
+| Bi-Weekly | 14 |
+| Fortnightly | 14 |
+| Monthly | 30 |
+| Every 3 Months | 90 |
+| Quarterly | 90 |
+| Annually | 365 |
+
 ---
 
 ## 🐍 Python Analysis
 
-Python was used for data cleaning, exploratory data analysis, and visualization.
+Python was used for data cleaning, exploratory data analysis, aggregation, and visualization.
 
 ### Libraries Used
 
@@ -108,10 +140,11 @@ Python was used for data cleaning, exploratory data analysis, and visualization.
 - Revenue by discount usage
 - Revenue by season
 - Revenue by shipping type
-- Top products by revenue
+- Top 10 products by revenue
 - Purchase frequency analysis
 - Review rating distribution
 - Customer loyalty analysis
+- Category and season analysis
 
 ---
 
@@ -119,12 +152,13 @@ Python was used for data cleaning, exploratory data analysis, and visualization.
 
 The cleaned dataset was imported into **PostgreSQL** for structured business analysis.
 
-SQL analysis included:
+### SQL Analysis Included
 
 - Overall revenue and customer KPIs
 - Category performance
 - Gender-based purchasing behavior
 - Subscription analysis
+- Age group analysis
 - Payment method analysis
 - Shipping method analysis
 - Discount analysis
@@ -189,6 +223,26 @@ Includes:
 
 ---
 
+## 📸 Dashboard Screenshots
+
+### Executive Dashboard
+
+![Executive Dashboard](screenshots/executive_dashboard.png)
+
+### Product & Sales Analysis
+
+![Product & Sales Analysis](screenshots/product_sales_analysis.png)
+
+### Customer & Rating Analysis
+
+![Customer & Rating Analysis](screenshots/customer_rating_analysis.png)
+
+### Customer Segmentation & Payment Analysis
+
+![Customer Segmentation & Payment Analysis](screenshots/customer_segmentation_payment.png)
+
+---
+
 ## 🔍 Key Findings
 
 - Clothing generates the largest share of revenue among the four product categories.
@@ -200,6 +254,7 @@ Includes:
 - Product-level analysis identifies the products generating the highest revenue.
 - Customer ratings are concentrated around the middle-to-high rating range.
 - Purchase frequency categories show relatively similar average purchase amounts.
+- Revenue varies across seasons, product categories, shipping methods, and customer segments.
 
 These findings describe patterns observed in the dataset and do not establish causal relationships.
 
@@ -230,7 +285,6 @@ These findings describe patterns observed in the dataset and do not establish ca
 customer-shopping-analysis/
 │
 ├── data/
-│   ├── customer_shopping_behavior.csv
 │   └── customer_shopping_behavior_cleaned.csv
 │
 ├── python/
@@ -239,14 +293,11 @@ customer-shopping-analysis/
 ├── sql/
 │   └── customer_analysis.sql
 │
-├── powerbi/
-│   └── Customer_Shopping_Behavior_Analysis
-│
 ├── screenshots/
 │   ├── executive_dashboard.png
 │   ├── product_sales_analysis.png
 │   ├── customer_rating_analysis.png
 │   └── customer_segmentation_payment.png
 │
-│
+├── .gitignore
 └── README.md
